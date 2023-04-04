@@ -378,7 +378,7 @@ class SOMAMoCapPointCloudLabeler(object):
         # ToDo: if a point label is inside a tracklet with the same label keep the confidence if not plunge it to zero
 
         labeling_results = self.create_mocap(points=self.points_compressed,
-                                             points_label_id=points_label_id_tracked,ody_visualizer
+                                             points_label_id=points_label_id_tracked,
                                              superset_labels=self.superset_labels,
                                              keep_nan_points=self.rt_cfg.keep_nan_points,
                                              remove_zero_trajectories=self.rt_cfg.remove_zero_trajectories, )
