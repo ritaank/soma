@@ -130,6 +130,10 @@ def run_soma_on_multiple_settings(soma_expr_ids: List[str], soma_mocap_target_ds
     eval_v2v_aggregate = {}
     for soma_mocap_target_ds_name in soma_mocap_target_ds_names:
         mocap_fnames = glob(osp.join(mocap_base_dir, soma_mocap_target_ds_name, f'*/*{mocap_ext}'))
+        if 'filter_fn' in kwargs:
+            mocap_fnames = list(filter(kwargs['filter_fn'], mocap_fnames))
+            logger.debug(f'Found {len(mocap_fnames)} mocaps for {soma_mocap_target_ds_name}')
+            logger.debug(f"mocap_fnames = {mocap_fnames}")
         if fast_dev_run: mocap_fnames = mocap_fnames[:5]
         for soma_expr_id in soma_expr_ids:
             for soma_data_id in soma_data_ids:

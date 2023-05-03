@@ -2,7 +2,8 @@ mocap:
   fname: ???
   ds_name: ${resolve_mocap_ds_name:${mocap.fname}}
   # subject_name: ${resolve_mocap_subject:${mocap.fname}}
-  subject_name: 'subjectA'
+  subject_name: ${resolve_mocap_session:${mocap.fname}}
+  # subject_name: 'subjectA'
   basename: ${resolve_mocap_basename:${mocap.fname}}
   unit: mm
   rotate:
